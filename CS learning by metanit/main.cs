@@ -4,19 +4,27 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        //workin with enemy
         Enemy madDog = new Enemy("Mad dog", 10);
-
-        madDog.Name = "mad dog";
         Console.WriteLine(madDog.Name);
+        
         madDog.ShowInfo();
-
-        Console.WriteLine();
-
+        Console.WriteLine(madDog.Damage);
+        
+        madDog.Damage = 100; //Damage should be from 0 to 30
         Console.WriteLine(madDog.Damage);
 
-        madDog.Damage = 100; //Damage should be from 0 to 30
+        Console.WriteLine();          
 
-        Console.WriteLine(madDog.Damage); 
+        //working with person
+        Person person_1 = new Person("Melnik", "Nikita", "Vital'evich");
+        Console.WriteLine(person_1.Name);
+
+        Person person_2 = new Person("Nikita Vital'evich Melnik");
+        Console.WriteLine(person_2.Name);
+
+        Person person_3 = new Person("Nikita", 20);
+        Console.WriteLine($"Person 3: name: {person_3.AutoName}; age: {person_3.AutoAge}");
     }
     
     public static void ReferenceAndValueType()
