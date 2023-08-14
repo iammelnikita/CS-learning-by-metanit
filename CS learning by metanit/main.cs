@@ -4,68 +4,23 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        //workin with enemy
-        Enemy madDog = new Enemy("Mad dog", 10);
-        Console.WriteLine(madDog.Name);
-        
-        madDog.ShowInfo();
-        Console.WriteLine(madDog.Damage);
-        
-        madDog.Damage = 100; //Damage should be from 0 to 30
-        Console.WriteLine(madDog.Damage);
-
-        Console.WriteLine();          
-
-        //working with person
-        Person person_1 = new Person("Melnik", "Nikita", "Vital'evich");
-        Console.WriteLine(person_1.Name);
-
-        Person person_2 = new Person("Nikita Vital'evich Melnik");
-        Console.WriteLine(person_2.Name);
-
-        Person person_3 = new Person("Nikita", 20);
-        Console.WriteLine($"Person 3: name: {person_3.AutoName}; age: {person_3.AutoAge}");
-    }
-    
-    public static void ReferenceAndValueType()
-    {
-        MyLib.ValueType value1 = new MyLib.ValueType(); // ValueType  - structure: its data located in stack
-        MyLib.ValueType value2 = new MyLib.ValueType();
-        value2.x = 1;
-        value2.y = 2;
-        value2.reference.x = 31;
-
-        value1 = value2;
-        value2.x = 5;
-        value2.reference.x = 32;
-
-        Console.WriteLine($"value1.x-y-reference.x {value1.x} {value1.y} {value1.reference.x}, value2.x-y-reference.x {value2.x} {value2.y} {value2.reference.x}\n");
-
-        ReferenceType reference1 = new ReferenceType(); // ReferenceType - class: reference at heap is placed in stack
-        ReferenceType reference2 = new ReferenceType(); // All object data placed at heap
-        reference2.x = 1;
-        reference2.y = 2;
-
-        reference1 = reference2;
-        reference2.y = 7;
-
-        Console.WriteLine($"reference1.x-y {reference1.x} {reference1.y}, value2.x-y {reference2.x} {reference2.y}\n");
-
-        ChangeReferenceType(ref reference2);
-
-        Console.WriteLine($"reference2: {reference2.x} {reference2.y}");
+        Properties();
     }
 
-    public static void ChangeReferenceType(ref ReferenceType reference)
+    public static void Properties()
     {
-        reference.x = 20; //working
+        string name = "Nikita";
+        int age = 20;
+        Person person = new Person(name, age);
+        //person.Name = "Nikita";
+        //person.Age = 20;
+        Console.WriteLine($"Person(\"{name}\", {age})");
+        person.ShowInfo();
 
-        reference = new ReferenceType // working at this method only
-        {
-            x = 47,
-            y = 100
-        };
-
-        Console.WriteLine($"reference: {reference.x} {reference.y}");
+        string firstName = "Nikita";
+        string lastName = "Melnik";
+        Person person_2 = new Person(firstName, lastName);
+        Console.WriteLine($"Person(\"{firstName}\", \"{lastName}\")");
+        person_2.Show1stLstName();
     }
 }
