@@ -4,7 +4,14 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Properties();
+        Overload();
+    }
+
+    public static void Overload()
+    {
+        Calculator calc = new Calculator();
+
+        Console.WriteLine(calc.Add(1232, 123));
     }
 
     public static void Properties()
